@@ -1,0 +1,28 @@
+<html>
+<head>
+    {% include 'head.html' %}
+</head>
+<body>
+    
+    <div class='container'>
+        {% include 'navbar.html' %}
+        <div class='mt-5 container'>
+            <form method="POST">
+                {% include 'pesan.html' %}
+                {{form.hidden_tag()}}
+
+                <label for='username'>Username</label>
+                    <p>{{form.username(placeholder="enter your username")}}</p>
+                <label for='password'>Password</label>
+
+                    <p>{{form.password(placeholder="enter your password")}}</p>
+                    <p><a class='text-dark' href='{{url_for("auth.register_page")}}'>Register</a> | 
+                        <a class='text-dark' href='{{url_for("auth.reset_password")}}'>Reset Password</a></p>
+                    <p>{{form.rememberme}} Remember Me</p>
+                    <p>{{form.submit(class='btn btn-outline-dark')}}</p>
+            </form>
+        </div>
+    </div>
+    {% include 'script.html' %}
+</body>
+</html>

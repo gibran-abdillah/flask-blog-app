@@ -1,0 +1,6 @@
+env/
+__pycache__/
+test.py
+seed_data.py
+ref.txt
+1

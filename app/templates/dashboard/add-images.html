@@ -1,0 +1,16 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <form action='' method="POST" enctype="multipart/form-data">
+        {% include 'pesan.html' %}
+        {{form.hidden_tag()}}
+        <p>{{form.name}}</p>
+        <p>{{form.imgs}}</p>
+        <p>{{form.submit(class='btn btn-outline-dark')}}</p>
+    </form>
+    {% include 'script.html' %}
+</body>
+</html>

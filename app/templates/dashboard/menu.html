@@ -1,0 +1,58 @@
+<div class='container'>
+    <div class='menu'>
+        
+
+        <link href='{{url_for("static", filename="css/dash.css")}}' rel='stylesheet'>
+        {% extends 'navbar.html' %}
+
+        {% block brand %}
+            <a href='{{url_for("dashboard.dashboard_index")}}' class='navbar-brand text-dark'>Dashboard</a>
+        {% endblock %}
+        {% block navlink %}
+            <li class='nav-item dropdown'>
+                <a href='#' data-toggle='dropdown' class='nav-link' id='blogdropdown' role='button'  >Blog</a>
+                <div class='dropdown-menu' aria-labelledby="blogdropdown">
+                    <a href='{{url_for("dashboard.add_blog")}}' class='nav-link'>Add Blog</a>
+                    <a href='{{url_for("dashboard.blog")}}' class='nav-link'>Edit Blog</a>
+                    {% if current_user.is_admin %} 
+                    <a href='{{url_for("dashboard.add_category")}}' class='nav-link'>Add category</a>
+                    <a href='{{url_for("dashboard.category_page")}}' class='nav-link'>Edit category</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class='nav-item dropdown'>
+                <a href='#' data-toggle="dropdown" class='nav-link' id='dropdownimage' role='button'>
+                    Images
+                </a>
+                <div class='dropdown-menu' aria-labelledby="dropdownimage">
+                    <a href='{{url_for("dashboard.add_images")}}' class='nav-link'>Add Images</a>
+                    <a href='#' class='nav-link'>Edit/Delete Images</a>
+
+                </div>
+            </li>
+            {% if current_user.is_admin %}
+            <li class='nav-item dropdown'>
+                <a href='#' data-toggle="dropdown" class='nav-link' id='dropdownuser' role='button'>
+                    Users
+                </a>
+                <div class='dropdown-menu' aria-labelledby="dropdownuser">
+                    <a href='{{url_for("dashboard.add_user")}}' class='nav-link'>Add Users</a>
+                    <a href='{{url_for("dashboard.show_users")}}' class='nav-link'>Edit Users</a>
+                </div>
+            </li>
+            {% endif %}
+            <li class='nav-item dropdown'>
+                <a href='#' data-toggle="dropdown" class='nav-link' id='dropdownaccount' role='button'>
+                    Account
+                </a>
+                <div class='dropdown-menu' aria-labelledby="dropdownaccount">
+                    <a href='{{url_for("dashboard.account_page")}}' class='nav-link'>General Settings</a>
+                    <a href='{{url_for("dashboard.change_password")}}' class='nav-link'>Change Password</a>
+                    <a class='nav-link' href='{{url_for("dashboard.logout_page")}}'>Logout</a>
+                </div>
+            </li>
+    </div>
+    
+    {% endblock %}
+    
+</div> 

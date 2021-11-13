@@ -1,0 +1,50 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+            <form method="POST" action=''>
+                {% include 'pesan.html' %}
+                <table class='table table-responsive-sm table-borderless w-100'>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for id, user in list_users %}
+                        <tr>
+                            
+                            <td>
+                                <input type='checkbox' name='checkbox[]' value='{{user.username}}'>
+                            </td>
+                            <td>{{user.username}}</td>
+                            <td>
+                                <a href='{{url_for("dashboard.edit_user", user_id=user.id)}}' class='item-menu'>
+                                    <span class='material-icons'>create</span>
+                                </a>
+                                <a href='{{url_for("dashboard.delete_user", user_id=user.id)}}' class='item-menu text-danger'>
+                                    <span class='material-icons'>delete</span>
+                                </a>
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                           
+                </table>
+                <select name='opt'>
+                    <option selected>Option</option>
+                    <option value='1'>Delete</option>
+                    <option value='2'>Promote to admin</option>
+                    
+                </select>
+                <input type='submit' value='Submit'>
+                
+            </form>
+    {% include 'script.html' %}
+</body>
+</html>

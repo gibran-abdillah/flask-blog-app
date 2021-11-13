@@ -1,0 +1,33 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+        <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <div class='container'>
+        <p class='mt-4'>Click Image to choose in ckeditor</p>
+        <div class='row'>
+            {% for id, image in images %}
+                <div class='col-md-3'>
+                    <img src='{{url_for("static", filename="img/{}".format(image.image_name))}}' class='img-thumbnail m-3' onclick="clickimage(this)">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'script.html' %}
+    <script type='text/javascript'>
+                  function getUrlParam( paramName ) {
+            var reParam = new RegExp( '(?:[\?&]|&)' + paramName + '=([^&]+)', 'i' );
+            var match = window.location.search.match( reParam );
+
+            return ( match && match.length > 1 ) ? match[1] : null;
+        }
+        function clickimage(img){
+            var funcNum = getUrlParam('CKEditorFuncNum')
+            window.opener.CKEDITOR.tools.callFunction(funcNum, img.src);
+            window.close()
+        }
+    </script>
+</body>
+</html>

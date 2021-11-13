@@ -1,0 +1,48 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <form method='POST'>
+        {% include 'pesan.html'%}
+        <table class='table table-responsive-sm table-borderless'>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>
+                        <input type='checkbox' name='checked[]' value='{{post.id}}'>
+                    </td>
+                    <td>{{post.title}}</td>
+                    <td>
+                        <a href='{{url_for("dashboard.edit_blog", blog_id=post.id)}}' class='item-menu'>
+                            <span class='material-icons text-dark'>create</span>
+                        </a>
+                        <a href='{{url_for("dashboard.delete_blog", blog_id=post.id)}}' class='item-menu text-danger'>
+                            <span class='material-icons'>delete</span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+           
+
+            </thead>
+            </tbody>
+            
+        </table>
+        <select name='opt'>
+            <option selected>Option</option>
+            <option value='1'>Delete</option>
+        </select>
+        <input type='submit' value='Submit'>
+    </form>
+    {% include 'script.html' %}
+</body>
+</html>

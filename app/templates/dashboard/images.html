@@ -1,0 +1,44 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <form method='POST'>
+        {% include 'pesan.html' %}
+        <table class='table table-responsive-sm table-borderless'>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for id, images in image %}
+                <tr>
+                    <td>
+                        <input type='checkbox' name='checkimage[]' value='{{images.id}}'>
+                    </td>
+                    <td>
+                        <img src='{{url_for("static", filename="img/{}".format(images.image_name))}}' class='img-thumbnail' style="max-height:100px">
+                    </td>
+                    <td>
+                        <a href='{{url_for("dashboard.delete_image", image_id=images.id)}}' class='text-danger'>
+                            <span class='material-icons'>delete</span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <select name='opt_img'>
+            <option value='1'>Delete</option>
+        </select>
+        <button type='submit' class='btn btn-outline-dark'>Submit</button>
+    </form>
+    {% include 'script.html' %}
+
+    </script>
+</body>
+</html>

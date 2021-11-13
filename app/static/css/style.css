@@ -1,0 +1,55 @@
+.main-nav .nav-item .nav-link  {
+    font-size:17px;
+    font-weight: 500;
+    color: black;
+    text-transform: uppercase;
+    margin-left:10px;
+}
+
+.greeting {
+    padding:100px;
+    text-align: center;
+}
+* {
+    font-family: 'Raleway', sans-serif;
+}
+.greeting p {
+    line-height: 25px;
+    color:#808080;
+}
+.pinnded-article {
+    padding: 0 0 50px 0;
+}
+.pinnded-article article.pinned-items {
+    display:flex;
+}
+.pinnded-article .pinnded-items .image {
+    flex-basis: 100%;
+    padding: 20px;
+}
+.pinnded-article .pinnded-items .image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.section {
+    padding: 100px 0;
+}
+.post-sm {
+    margin-bottom: 40px;
+    padding: 20px;
+}
+.post-details {
+    margin-top:15px;
+}
+.title-post h1 {
+    font-weight: 100;
+    line-height: 1.4;
+}
+.blog-content {
+    font-size: 18px;
+    line-height: 1.8;
+}
+.center {
+    justify-content: center;
+}

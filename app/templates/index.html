@@ -1,0 +1,33 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    <div class='container'>
+        {% include 'navbar.html' %}
+    </div>
+
+    
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm-8 greeting m-auto'>
+                <h2>Hello World</h2>
+                <p>lets change the world by starting from <b>Hello World!</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class='container'>
+            <h2>Recent Posts</h1>
+                <br>
+                
+            <div class='row' id='content'>
+            </div>
+        </div>
+    </section>
+    {% include 'script.html' %}
+
+</body>
+</html>

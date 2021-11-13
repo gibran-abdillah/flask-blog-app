@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <form method='POST'>
+        {% include 'pesan.html' %}
+        {{form.hidden_tag()}}
+        <label for='name'>Name</label>
+        <p>{{form.name(placeholder='Full Name')}}</p>
+        <label for='username'>Username</label>
+        <p>{{form.username(placeholder='Username')}}</p>
+        <label for='email'>Email</label>
+        <p>{{form.email(placeholder='email')}}</p>
+        <label for='password'>Password</label>
+        <p>{{form.password(placeholder='password')}}</p>
+        <label for='password_confirmation'>Confirm Password</label>
+        <p>{{form.password_confirmation(placeholder='confirm password')}}</p>
+        <label for='show_password'>Show Password</label>
+        <p>{{form.show_password}}</p>
+        <p>Is admin : {{form.admin}}</p>
+        <p>{{form.submit}}</p>
+    </form>
+    {% include 'script.html' %}
+</body>
+</html>

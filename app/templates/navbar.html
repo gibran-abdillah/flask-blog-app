@@ -1,0 +1,33 @@
+<nav class='navbar navbar-expand-lg main-nav navbar-light' >
+
+    {% block brand %}
+    <a href='#' class='navbar-brand text-dark'>
+        Lorem Ipsum
+    </a>
+    {% endblock %}
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class='collapse navbar-collapse' id='mynav'>
+        <ul class='navbar-nav ml-auto'>
+            {% block navlink %}
+            <li class='nav-item'>
+                <a href='{{url_for("main.index_page")}}' class='nav-link'>Home</a>
+            </li>
+            <li class='nav-item'>
+                <a href='{{url_for("main.blog")}}' class='nav-link'>Blog</a>
+            </li>
+            <li class='nav-item'>
+                <a href='{{url_for("auth.login_page")}}' class='nav-link'>Login</a>
+            </li>
+            <li class='nav-item'>
+                <a href='#' class='nav-link'>About</a>
+            </li>
+            {% endblock %}
+
+
+        </ul>
+    </div>
+</nav>

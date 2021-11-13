@@ -1,0 +1,52 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+    {% include 'dashboard/menu.html' %}
+    <div class='container'>
+        {% include 'pesan.html' %}
+        <table class='table table-responsive-sm table-borderless'>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <form method="POST">
+                <tbody>
+
+                    {% for id, category in categories %}
+                    <tr>
+                        <td>
+                            <input type='checkbox' name='checkcat[]' value='{{category.id}}'>
+                        </td>
+                        <td>
+                            {{category.name}}
+                        </td>
+                        <td>
+                            <a href='#' class='item-menu text-dark'>
+                                <span class='material-icons'>create</span>
+                            </a>
+                            <a href='#' class='item-menu text-danger'>
+                                <span class='material-icons'>delete</span>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <thead>
+                    
+                    <th>
+                        <select name='option_cat'>
+                            <option selected>Option</option>
+                            <option value='1'>Delete</option>
+                        </select>
+                        <input type='submit' class='btn btn-outline-dark' value='Submit'>
+                    </th>
+                </thead>
+            </form>
+        </table>
+    </div>
+    {% include 'dashboard/script.html' %}
+</html>

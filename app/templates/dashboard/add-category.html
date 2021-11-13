@@ -1,0 +1,19 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    
+    <div class='container'>
+             <form method='POST' action='{{url_for("dashboard.add_newcategory")}}'>
+                 {% include 'pesan.html' %}
+                <p><a href='#' id='addcat'>+ add more</a></p>
+                <input type='text' name='category[]' placeholder="category name" class='mb-3'>
+                <div id='add_cat'></div>
+                <p><button type='submit' class='btn btn-outline-success'>Submit</button></p>
+            </form>
+    </div>
+    {% include 'dashboard/script.html' %}
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        {% include 'head.html' %}
+        <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
+    </head>
+<body>
+    {% include 'dashboard/menu.html' %}
+    <div class='container'>
+        <form action='' method='POST' enctype="multipart/form-data">
+            {% include 'pesan.html' %}
+            {{form.hidden_tag()}}
+            <p>{{form.thumbnail()}}</p>
+            <p>{{form.title(placeholder='Title')}}</p>
+            <p>{{form.body_content(id='editor')}}</p>
+            <p>Categories
+                <p>
+                <select name='category_post'>
+                {% for id, category in categories %}
+                
+                    <option value='{{category.id}}'>{{category.name}}</option>
+                    
+                {% endfor %}
+                </select>
+                </p>
+            </p>
+            <p>{{form.submit(class='btn btn-outline-dark')}}</p>
+           
+            <script>
+                CKEDITOR.replace('editor', {
+                    filebrowserBrowseUrl: '/dashboard/img-ckeditor',
+                })
+                CKEDITOR.on('instanceReady', function(evt) {
+                    evt.editor.dataProcessor.htmlFilter.addRules({
+                        elements: {
+                            img: function(el){
+                                el.addClass('img-fluid'),
+                                el.addClass('mb-5'),
+                                el.addClass('rounded')
+                            }
+                        }
+                    })
+                })
+
+            </script>
+            
+        </form>
+    </div>
+    {% include 'script.html'%}
+
+</body>
+</html>
