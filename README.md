@@ -2,7 +2,7 @@
 
 
 ## Features 
-- login with multiple user ( admin, user ) 
+- multiple user ( admin, user ) 
 - bulk delete for blogs, images, user
 - bulk promote users to admin 
 - admin cant see email users 
